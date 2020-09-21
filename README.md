@@ -3,14 +3,19 @@ Hey Folks!, Following repo introduce to TensorFlow topics from basic to pro.
 
 TensorFlow is an open-source Machine Learning library for research and production. TensorFlow offers APIs for beginners and experts to develop for desktop, mobile, web, and cloud. See the sections below to get started.
 
-Installing TensorFlow is an easy task unless until you complicated it. The recommended method to install it is using the virtual environment. Python virtual environments are used to isolate package installation from the system.
+# In Simple way, It's a end to end open source platform for machine learning.
+Made of two words "Tensor + Flow" where, Tensor = multidimensional array & Flow = Graph of operations
+
+
+# Installing TensorFlow is an easy task unless until you complicated it. The recommended method to install it is using the virtual environment. Python virtual environments are used to isolate package installation from the system.
 
 If you are not worrying about it and using ubuntu just type following command in terminal. It's the easiest way for a lazy person :P
 
 pip3 install tensorflow
+
 Before diving into the coding you must know some terms related to Tensorflow.
 
-What Is a Graph?
+# What Is a Graph?
 TensorFlow uses a data flow graph to represent your computation in terms of the dependencies between individual operations. This leads to a low-level programming model in which you first define the data flow graph, then create a TensorFlow session to run parts of the graph across a set of local and remote devices. This is commonly called a data flow programming model, especially for parallel computing.
 
 Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them. The flexible architecture allows you to deploy computation to one or more CPUs or GPUs in a desktop, server, or mobile device with a single API.
