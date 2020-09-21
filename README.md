@@ -25,12 +25,15 @@ Nodes in the graph represent mathematical operations, while the graph edges repr
 
 You can see the graph as the functions you have used in mathematics. When you plug variables it gives you the output. If the function is called f, this relation is denoted y = f (x), the element x is the argument or input of the function, and y is the value of the function, the output, or the image of x by f. here the function f (x) could be seen as the graph where it 's doing an operation.
 
-So, What Are the Benefits of Using Graphs?
+# So, What Are the Benefits of Using Graphs?
 Parallelism: By using explicit edges to represent dependencies between operations, it is easy for the system to identify operations that can execute in parallel.
+
 Distributed execution: By using explicit edges to represent the values that flow between operations, it is possible for TensorFlow to partition your program across multiple devices (CPUs, GPUs, and TPUs) attached to different machines. TensorFlow inserts the necessary communication and coordination between devices.
+
 Compilation: TensorFlow’s XLA compiler can use the information in your dataflow graph to generate faster code, for example, by fusing together adjacent operations.
+
 Portability: The dataflow graph is a language-independent representation of the code in your model. You can build a dataflow graph in Python, store it in a SavedModel, and restore it in a C++ program for low-latency inference.
-What Is a Session?
+# What Is a Session?
 I’ve seen a lot of confusion over the rules of tf.Graph and tf.Session in TensorFlow.It’s simple:
 
 A graph defines the computation. It doesn’t compute anything, It doesn’t hold any values, it just defines the operations that you specified in your code.
@@ -38,29 +41,32 @@ A session allows executing graphs or part of graphs. It allocates resources (on 
 
 A Session object encapsulates the environment in which Operation objects are executed, and Tensor objects are evaluated. Which means that none the operators and variables defined in the graph-definition part are being executed. until the session is executed.
 
-Writing and Running Programs in TensorFlow Has the Following Steps:
-Create Tensors (variables) that are not yet executed/evaluated.
-Write operations between those Tensors.
-Initialize your Tensors.
-Create a Session.
-Run the Session.
+# Writing and Running Programs in TensorFlow Has the Following Steps:
+1. Create Tensors (variables) that are not yet executed/evaluated.
+2. Write operations between those Tensors.
+3. Initialize your Tensors.
+4. Create a Session.
+5. Run the Session.
+
 In order to make you guess for the rest of the article, I am giving a TensorFlow program which will calculate the error in a linear graph.
 
 Here, I define the function:
 
-Image title
+![alt text](https://dzone.com/storage/temp/10491967-screenshot-from-2018-10-17-17-50-00.png)
 
-y_hat = tf.constant(36, name='y_hat')            # Define y_hat constant. Set to 36.
-y = tf.constant(39, name='y')                    # Define y. Set to 39
-loss = tf.Variable((y - y_hat)**2, name='loss')  # Create a variable for the loss
-init = tf.global_variables_initializer()         # When init is run later (session.run(init)),
-                                                 # the loss variable will be initialized and ready to be computed
-with tf.Session() as session:                    # Create a session and print the output
-    session.run(init)                            # Initializes the variables
-    print(session.run(loss))                     # Prints the loss
-You will end up getting 9 in the console. So, the first two lines describe that we are defining two constants. Then, using the sensor flow variable, we define the loss function. When we created a variable for the loss, we simply defined the loss as a function of other quantities but did not evaluate its value. To evaluate it, we had to run init=tf.global_variables_initializer() . That initialized the loss variable, and in the last line, we were finally able to evaluate the value of loss and print its value. We then get the output as we created the session and executed it.
+y_hat = tf.constant(36, name='y_hat')                 # Define y_hat constant. Set to 36.
+y = tf.constant(39, name='y')                         # Define y. Set to 39
+loss = tf.Variable((y - y_hat)**2, name='loss')       # Create a variable for the loss
+init = tf.global_variables_initializer()              # When init is run later (session.run(init)),
+                                                      # the loss variable will be initialized and ready to be computed
+with tf.Session() as session:                         # Create a session and print the output
+    session.run(init)                                 # Initializes the variables
+    print(session.run(loss))                          # Prints the loss
 
-Constants vs. Variables
+You will end up getting 9 in the console. 
+So, the first two lines describe that we are defining two constants. Then, using the sensor flow variable, we define the loss function. When we created a variable for the loss, we simply defined the loss as a function of other quantities but did not evaluate its value. To evaluate it, we had to run init=tf.global_variables_initializer() . That initialized the loss variable, and in the last line, we were finally able to evaluate the value of loss and print its value. We then get the output as we created the session and executed it.
+
+# Constants vs. Variables
 In TensorFlow, the differences between constants and variables are that when you declare some constant, its value can't be changed in the future (also the initialization should be with a value, not with the operation).
 
 Nevertheless, when you declare a Variable, you can change its value in the future with tf.assign() method (and the initialization can be achieved with a value or operation).
@@ -78,10 +84,11 @@ As expected, you will not see 20! You got a tensor saying that the result is a t
 
 sess = tf.Session()
 print(sess.run(c))
-#answer : 20
+answer : 20
+
 Great! To summarize, remember to initialize your variables, create a session, and run the operations inside the session.
 
-What Is a Placeholder?
+# What Is a Placeholder?
 A placeholder is an object whose value you can specify only later. To specify values for a placeholder, you can pass in values by using a "feed dictionary" (feed_dict variable). Below, we created a placeholder for x. This allows us to pass in a number later when we run the session.
 
 x = tf.placeholder(tf.int64, name = 'x')
