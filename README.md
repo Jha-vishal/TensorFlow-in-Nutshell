@@ -19,6 +19,8 @@ Before diving into the coding you must know some terms related to Tensorflow.
 # What Is a Graph?
 TensorFlow uses a data flow graph to represent your computation in terms of the dependencies between individual operations. This leads to a low-level programming model in which you first define the data flow graph, then create a TensorFlow session to run parts of the graph across a set of local and remote devices. This is commonly called a data flow programming model, especially for parallel computing.
 
+![alt text](https://www.tensorflow.org/images/tensors_flowing.gif)
+
 Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them. The flexible architecture allows you to deploy computation to one or more CPUs or GPUs in a desktop, server, or mobile device with a single API.
 
 You can see the graph as the functions you have used in mathematics. When you plug variables it gives you the output. If the function is called f, this relation is denoted y = f (x), the element x is the argument or input of the function, and y is the value of the function, the output, or the image of x by f. here the function f (x) could be seen as the graph where it 's doing an operation.
