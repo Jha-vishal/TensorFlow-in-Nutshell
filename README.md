@@ -1,13 +1,14 @@
 # TensorFlow-in-Nutshell
-Hey Folks!, Following repo introduce to TensorFlow topics from basic to pro.
+
 
 TensorFlow is an open-source Machine Learning library for research and production. TensorFlow offers APIs for beginners and experts to develop for desktop, mobile, web, and cloud. See the sections below to get started.
 
 # In Simple way, It's a end to end open source platform for machine learning.
-Made of two words "Tensor + Flow" where, Tensor = multidimensional array & Flow = Graph of operations
+# Made of two words "Tensor + Flow" where,
+# Tensor = multidimensional array & Flow = Graph of operations 
 
 
-# Installing TensorFlow is an easy task unless until you complicated it. The recommended method to install it is using the virtual environment. Python virtual environments are used to isolate package installation from the system.
+Installing TensorFlow is an easy task unless until you complicated it. The recommended method to install it is using the virtual environment. Python virtual environments are used to isolate package installation from the system.
 
 If you are not worrying about it and using ubuntu just type following command in terminal. It's the easiest way for a lazy person :P
 
